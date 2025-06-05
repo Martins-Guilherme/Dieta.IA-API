@@ -1,7 +1,7 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
-import dotenv from 'dotenv';
-import { routes } from "./routes"
+import dotenv from "dotenv";
+import { routes } from "./routes";
 
 const app = Fastify({ logger: true });
 dotenv.config();
@@ -17,9 +17,8 @@ const start = async () => {
   app.register(routes);
 
   try {
-    await app.listen({port: 3333, host: "0.0.0.0"})
-    console.log(`Servidor rodando no servidor http://localhost:3333`);
-    
+    await app.listen({ port: 3333, host: "0.0.0.0" });
+    console.log(`Servidor rodando`);
   } catch (error) {
     console.log(error);
   }
