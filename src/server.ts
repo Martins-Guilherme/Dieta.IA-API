@@ -5,6 +5,7 @@ import { routes } from "./routes";
 
 const app = Fastify({ logger: true });
 dotenv.config();
+const PORT = Number(process.env.PORT) || 3333;
 
 app.setErrorHandler((error, request, response) => {
   response.code(400).send({ message: error.message });
@@ -17,10 +18,11 @@ const start = async () => {
   app.register(routes);
 
   try {
-    await app.listen({ port: 3333, host: "0.0.0.0" });
-    console.log(`Servidor rodando`);
+    await app.listen({ port: PORT, host: "0.0.0.0" });
+    console.log(`Servidor rodando na porta ${PORT} 🚀🚀🚀}`);
   } catch (error) {
-    console.log(error);
+    app.log.error(error);
+    process.exit(1);
   }
 };
 

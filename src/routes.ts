@@ -29,8 +29,8 @@ export async function routes(
     reply.send({ ok: true });
   });
 
-  fastify.get("/", (request: FastifyRequest, reply: FastifyReply) => {
-    return 0;
+  fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
+    return { hello: "world" };
   });
 
   fastify.post(
