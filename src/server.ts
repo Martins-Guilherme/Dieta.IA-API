@@ -13,7 +13,11 @@ app.setErrorHandler((error, request, response) => {
 
 const start = async () => {
   // Registrando a rota para todos usiarios poderem acessar
-  app.register(cors);
+  await app.register(cors, {
+    allowedHeaders: "*",
+    origin: "*",
+    methods: "*",
+  });
   // Registrando a rota
   app.register(routes);
 

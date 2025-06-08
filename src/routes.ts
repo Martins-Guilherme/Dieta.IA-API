@@ -31,7 +31,8 @@ export async function routes(
 
   fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
     reply.send({
-      data: routes,
+      message: "API is running",
+      status: "success",
     });
   });
 
