@@ -30,7 +30,9 @@ export async function routes(
   });
 
   fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
-    return { hello: "world" };
+    reply.send({
+      data: routes,
+    });
   });
 
   fastify.post(
