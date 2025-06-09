@@ -36,7 +36,7 @@ export async function routes(
     });
   });
 
-  fastify.post(
+  fastify.get(
     "/create",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new CreateNutritionControlles().handle(request, reply);
